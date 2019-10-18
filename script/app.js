@@ -51,7 +51,7 @@ const SunUpdate = function(up,total){
   }
   let interval = setInterval(function() {
     goSun(sun, total, now, interval);
-  }, 10);
+  }, 1000);
 }
 
 // 4 Zet de zon op de juiste plaats en zorg ervoor dat dit iedere minuut gebeurt.
@@ -137,6 +137,7 @@ let showResult = queryResponse => {
 
 	document.querySelector('.js-location').innerHTML = `${queryResponse.city.name}, belgium`;
 	let sunrise = new Date(queryResponse.city.sunrise * 1000);
+
 	document.querySelector('.js-sunrise').innerHTML = `${sunrise.getHours()}:${sunrise.getMinutes()}`;
 	let sunset = new Date(queryResponse.city.sunset * 1000);
 	document.querySelector('.js-sunset').innerHTML = `${sunset.getHours()}:${sunset.getMinutes()}`;
